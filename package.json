@@ -1,0 +1,65 @@
+{
+  "_args": [
+    [
+      "@kamotive/industrial-app@0.0.19"
+    ]
+  ],
+  "_from": "@kamotive/industrial-app@0.0.19",
+  "_id": "@kamotive/industrial-app@0.0.19",
+  "_inBundle": false,
+  "_integrity": "sha512-E6FzGM/rFW0VunPecSPC8b5YgXcNsP66rj3BxNRD+HHcgsQ42apCqd6a0kKRNwYh+1Gj6dFlqbXREnMHV+gaCw==",
+  "_location": "/@kamotive/industrial-app",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@kamotive/industrial-app@0.0.19",
+    "name": "@kamotive/industrial-app",
+    "escapedName": "@kamotive%2findustrial-app",
+    "scope": "@kamotive",
+    "rawSpec": "0.0.19",
+    "saveSpec": null,
+    "fetchSpec": "0.0.19"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "_spec": "0.0.19",
+  "description": "Industrial Application",
+  "devDependencies": {
+    "@kamotive/api-file-upload": "*",
+    "@kamotive/blueprint-viewer": "*",
+    "@kamotive/industrial-testcafe-helpers": "*",
+    "@kamotive/industrial-viewer": "*",
+    "@kamotive/objects-db": "*",
+    "@kamotive/react-test-utils": "*",
+    "classnames": "^2.2.6",
+    "mobile-detect": "^1.4.4",
+    "mobx-react": "^6.2.2",
+    "wg-loading-screen": "^0.1.8"
+  },
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "name": "@kamotive/industrial-app",
+  "scripts": {
+    "bootstrap": "npm -C ../../ run bootstrap",
+    "build:dev": "npm run clean && webpack",
+    "build:prod": "npm run clean && cross-env NODE_ENV=production webpack",
+    "build:watch": "npm run clean && webpack --watch",
+    "clean": "rimraf dist/",
+    "link": "npm -C ../../ run link",
+    "prepublishOnly": "npm run publish:package",
+    "publish:package": "npm run bootstrap && npm run build:prod",
+    "start": "npm -C ../examples run start",
+    "test-ci": "cross-env CI=true testcafe chrome tests/**/**/*.js -s screenshots -r teamcity --app \"http-server ../examples/dist\"",
+    "test-dev": "cross-env VIS_OS_NAME_OVERRIDE=Linux testcafe chrome tests/**/**/*.js -s screenshots --live",
+    "test-dev:generate": "cross-env VIS_GENERATE_NEW_ONLY=true VIS_OS_NAME_OVERRIDE=Linux npm run test-dev"
+  },
+  "version": "0.0.19"
+}
